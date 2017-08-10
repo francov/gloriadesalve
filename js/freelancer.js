@@ -3,6 +3,14 @@
 (function($) {
     "use strict"; // Start of use strict
 
+    // Lazy load img
+    [].forEach.call(document.querySelectorAll('img[data-src]'), function(img) {
+      img.setAttribute('src', img.getAttribute('data-src'));
+      img.onload = function() {
+        img.removeAttribute('data-src');
+      };
+    });
+
     // jQuery for page scrolling feature - requires jQuery Easing plugin
     $('.page-scroll a').bind('click', function(event) {
         var $anchor = $(this);
@@ -23,6 +31,28 @@
             $('.navbar-toggle:visible').click();
     });
 
+    // Change hsh on modal opening
+    var activeModal = "";
+    $('.portfolio-link').click(function(){ 
+        window.location = $(this).get(0).href;
+        activeModal = window.location.hash;
+    });
+
+    // Close modal
+    $(".close-modal-hash").click(function(){
+        $(activeModal).modal('hide');
+        window.location.hash = "";
+        activeModal = window.location.hash;
+    });
+
+    // Handle back button
+    $(window).on('hashchange', function (event) {
+        if(window.location.hash != activeModal){
+            $(activeModal).modal('hide');
+            activeModal = window.location.hash;
+        }
+    });
+
     // Offset for Main Navigation
     $('#mainNav').affix({
         offset: {
@@ -41,4 +71,9 @@
         });
     });
 
+    // Toggle modal if hash is present
+    if(window.location.hash) {
+      var hash = window.location.hash;
+      $(hash).modal('toggle');
+    }
 })(jQuery); // End of use strict

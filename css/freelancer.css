@@ -210,6 +210,9 @@ section.success {
   color: white;
 }
 @media (max-width: 767px) {
+  .caption {
+    display: none;
+  }
   section {
     padding: 75px 0;
   }
@@ -545,4 +548,11 @@ div#maincontent {
 }
 .contactlist {
   font-size: 20px !important;
+}
+img {
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+img[data-src] {
+  opacity: 0;
 }
