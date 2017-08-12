@@ -21,9 +21,15 @@ html {
   background-repeat: no-repeat;
   background-size: cover;
 }
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .parallax {
     background-attachment: scroll;
+  }
+}
+@media (min-width: 480px) and (max-width: 992px) {
+  .parallax {
+    background-attachment: scroll;
+    height: 80%;
   }
 }
 .about_me {
