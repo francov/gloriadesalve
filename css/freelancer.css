@@ -21,6 +21,11 @@ html {
   background-repeat: no-repeat;
   background-size: cover;
 }
+@media (max-width: 767px) {
+  .parallax {
+    background-attachment: scroll;
+  }
+}
 .about_me {
   position: relative;
   left: 0;
