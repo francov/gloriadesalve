@@ -38,6 +38,20 @@
         activeModal = window.location.hash;
     });
 
+    // Show spinner before image loading, then hide
+    $('.portfolio-modal').on("show.bs.modal", function() {
+      var images = $(this).find("img");
+      var loader = images.get(0);
+      var img = images.get(1);
+      $(loader).show();
+      $(img).css('opacity', 0);
+      img.setAttribute('src', img.getAttribute('data-pvt'));
+      img.onload = function() {
+        $(loader).hide();
+        $(img).css('opacity', 1);
+      };
+    });
+
     // Close modal
     $(".close-modal-hash").click(function(){
         $(activeModal).modal('hide');
