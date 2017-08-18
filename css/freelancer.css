@@ -34,11 +34,11 @@ html {
 }
 .about_me {
   position: relative;
-  left: 0;
+  /* left: 0; */
   top: 30%;
   width: 100%;
   text-align: center;
-  /* color: white; */
+  color: white;
 }
 p {
   font-size: 20px;
