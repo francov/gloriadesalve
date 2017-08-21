@@ -96,6 +96,14 @@ hr.star-primary:after {
   background-color: white;
   color: #C33A1A;
 }
+hr.citazioni {
+  border: 0;
+  height: 2px;
+  background-image: -webkit-linear-gradient(left, #C5BAAC, #C33A1A, #C5BAAC);
+  background-image: -moz-linear-gradient(left, #C5BAAC, #C33A1A, #C5BAAC);
+  background-image: -ms-linear-gradient(left, #C5BAAC, #C33A1A, #C5BAAC);
+  background-image: -o-linear-gradient(left, #C5BAAC, #C33A1A, #C5BAAC);
+}
 .img-centered {
   margin: 0 auto;
 }
