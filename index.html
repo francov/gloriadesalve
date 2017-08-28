@@ -4,10 +4,10 @@
 <head>
 
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Gloria De Salve - Artista dalle variegate sfumature spazia dal concettuale al figurativo.">
-    <meta name="author" content="Gloria De Salve">
+    <meta name="author" content="Francesco Valente &lt;francesco83.valente@gmail.com&gt;">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="google-site-verification" content="MeJzG-5di8UZSHrzh18Ca4EMVDcfFRqii8_W6wbMNX8" />
 
     <!-- Chrome, Firefox OS and Opera -->
@@ -33,18 +33,6 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
-    <!-- Google Analytics -->
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-      ga('create', 'UA-105404035-1', 'auto');
-      ga('send', 'pageview');
-
-    </script>
 </head>
 
 <body id="page-top" class="index">
@@ -68,13 +56,24 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="page-scroll">
-                        <a href="#portfolio">My Work</a>
+                    <a href="#portfolio"><span class="lang-it">I miei lavori</span><span class="lang-en">My works</span></a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#about">About</a>
+                        <a href="#about"><span class="lang-it">Biografia</span><span class="lang-en">About me</span></a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#contact">Contact</a>
+                        <a href="#contact"><span class="lang-it">Contatti</span><span class="lang-en">Contacts</span></a>
+                    </li>
+                    <li role="separator" class="divider-vertical"></li>
+                    <li>
+                      <div class="btn-group" style="padding-top:10px; padding-bottom:10px; padding-left:10px;">
+                        <button type="button" class="btn btn-sm switch-to-lang-it">
+                          <img src="img/it.png" alt="Italiano" />
+                        </button>
+                        <button type="button" class="btn btn-sm switch-to-lang-en">
+                          <img src="img/en.png" alt="English" />
+                        </button>
+                      </div>
                     </li>
                 </ul>
             </div>
@@ -92,7 +91,7 @@
                     <div class="intro-text">
                         <h1 class="name">Gloria De Salve</h1>
                         <hr class="star-light">
-                        <span class="skills">Artista precaria</span>
+                        <span class="skills"><span class="lang-it">Artista precaria</span><span class="lang-en">Precarious artist</span></span>
                     </div>
                 </div>
             </div>
@@ -104,7 +103,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2>My Work</h2>
+                    <h2><span class="lang-it">I miei lavori</span><span class="lang-en">My works</span></h2>
                     <hr class="star-primary">
                 </div>
             </div>
@@ -351,7 +350,7 @@
     <div class="parallax" id="about">
         <div class="about_me row">
             <div class="col-lg-12 text-center">
-                <h2>About</h2>
+                <h2><span class="lang-it">Biografia</span><span class="lang-en">About me</span></h2>
                 <hr class="star-primary">
             </div>
         </div>
@@ -361,7 +360,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
-                  <h3>Biografia</h3>
+                  <h3><span class="lang-it">Biografia</span><span class="lang-en">Biography</span></h3>
                 </div>
                 <div class="col-lg-4 col-lg-offset-2">
                   <p>
@@ -382,7 +381,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
-                  <h3>I materiali contano</h3>
+                  <h3><span class="lang-it">I materiali contano</span><span class="lang-en">Materials matter</span></h3>
                 </div>
                 <div class="col-lg-4 col-lg-offset-2">
                   <p>
@@ -405,7 +404,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
-                  <h3>Ispirazioni artistiche</h3>
+                  <h3><span class="lang-it">Ispirazioni artistiche</span><span class="lang-en">Artistic inspirations</span></h3>
                 </div>
                 <div class="col-lg-4 col-lg-offset-2">
                   <p>
@@ -460,7 +459,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2>Contact Me</h2>
+                    <h2><span class="lang-it">Contatti</span><span class="lang-en">Contact me</span></h2>
                     <hr class="star-primary">
                 </div>
             </div>
@@ -468,7 +467,10 @@
                 <div class="col-lg-8 col-lg-offset-2">
                     <ul class="contactlist list">
                         <li>Email:
-                            <strong><a href="#">desalve.gloria@gmail.com</a></strong>
+                          <strong><span class="email"></span></strong>
+                        </li>
+                        <li>Tel:
+                          <strong><span class="tel"></span></strong>
                         </li>
                         <li>Facebook:
                             <strong><a target="_blank" href="https://www.facebook.com/gloria.desalve">Gloria De Salve</a></strong>
@@ -485,12 +487,12 @@
             <div class="container">
                 <div class="row">
                     <div class="footer-col col-md-6">
-                        <h3>Location</h3>
+                        <h3><span class="lang-it">Location</span><span class="lang-en">Location</span></h3>
                         <p>Casarano, 73042
                             <br>LECCE (Italy)</p>
                     </div>
                     <div class="footer-col col-md-6">
-                        <h3>Around the Web</h3>
+                        <h3><span class="lang-it">Sul web</span><span class="lang-en">Around the web</span></h3>
                         <ul class="list-inline">
                             <li>
                                 <a target="_blank" href="https://www.facebook.com/gloria.desalve" class="btn-social btn-outline"><span class="sr-only">Facebook</span><i class="fa fa-fw fa-facebook"></i></a>
@@ -1262,6 +1264,9 @@
     <!-- Theme JavaScript -->
     <script src="js/freelancer.min.js"></script>
 
+    <script src="js/mail.min.js"></script>
+    <script src="js/switch-language.min.js"></script>
+    <script src="js/analytics.min.js"></script>
 </body>
 
 </html>

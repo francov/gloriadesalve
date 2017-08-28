@@ -1,7 +1,7 @@
 /*!
- * Start Bootstrap - Freelancer v3.3.7+1 (http://startbootstrap.com/template-overviews/freelancer)
- * Copyright 2013-2017 Start Bootstrap
- * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
+ * Gloria De Salve - Artista precaria v2.0.0 (http://gloriadesalve.it)
+ * Copyright 2016-2017 Francesco Valente
+ * Licensed under MIT
  */
 body {
   font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -579,4 +579,24 @@ img {
 }
 img[data-src] {
   opacity: 0;
+}
+span[class^="lang-"],
+span[class*=" lang-"] {
+  display: none;
+}
+html.lang-it span.lang-it {
+  display: inline;
+}
+html.lang-it span.lang-en {
+  display: none;
+}
+html.lang-en span.lang-it {
+  display: none;
+}
+html.lang-en span.lang-en {
+  display: inline;
+}
+button.switch-to-lang-it,
+button.switch-to-lang-en {
+  background: #dad3ca;
 }

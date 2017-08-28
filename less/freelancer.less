@@ -555,3 +555,14 @@ img {
 img[data-src] {
 	opacity: 0;
 }
+
+span[class^="lang-"], span[class*=" lang-"] { display: none; }
+html.lang-it span.lang-it { display: inline; }
+html.lang-it span.lang-en { display: none; }
+html.lang-en span.lang-it { display: none; }
+html.lang-en span.lang-en { display: inline; }
+
+button.switch-to-lang-it,
+button.switch-to-lang-en {
+  background: lighten(@theme-success, 10%);
+}
