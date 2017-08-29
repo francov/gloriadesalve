@@ -15,6 +15,10 @@
       $('html, body').stop().animate({
           scrollTop: ($($anchor.attr('href')).offset().top - 50)
       }, 1250, 'easeInOutExpo');
+      var hash = $anchor.attr('href').split('#')[1];
+      hash = (hash === 'page-top') ? '/' : hash + '.html';
+      var stateObj = { nav: hash };
+      history.pushState(stateObj, hash, hash );
       event.preventDefault();
     });
 
@@ -25,13 +29,13 @@
     });
 
     // Closes the Responsive Menu on Menu Item Click
-    $('.navbar-collapse ul li a').click(function(){ 
+    $('.navbar-collapse ul li a').click(function() {
       $('.navbar-toggle:visible').click();
     });
 
-    // Change hsh on modal opening
+    // Change hash on modal opening
     var activeModal = "";
-    $('.portfolio-link').click(function(){ 
+    $('.portfolio-link').click(function() {
       window.location = $(this).get(0).href;
       activeModal = window.location.hash;
     });
@@ -53,8 +57,13 @@
     // Close modal
     $(".close-modal-hash").click(function(){
       $(activeModal).modal('hide');
-      window.location.hash = "";
-      activeModal = window.location.hash;
+      if (window.location.pathname === '/') {
+        window.location.hash = "";
+        activeModal = window.location.hash;
+      } else {
+        window.history.back();
+        activeModal = "";
+      }
     });
 
     // Handle back button
@@ -72,9 +81,20 @@
       }
     });
 
+    $(window).on('load', function (event) {
+      var hash = window.location.hash;
+      console.log(hash);
+      if ((window.location.pathname !== '/') && (hash === '')) {
+        window.location.href = '#' + window.location.pathname.substr(1).split('.')[0];
+        console.log(window.location.href);
+      }
+    });
+
     // Toggle modal if hash is present
     if(window.location.hash) {
       var hash = window.location.hash;
-      $(hash).modal('toggle');
+      if ((hash !== '#my-works') && (hash !== '#about') && (hash !== '#contacts')) {
+        $(hash).modal('toggle');
+      }
     }
 })(jQuery); // End of use strict
