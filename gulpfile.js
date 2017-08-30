@@ -72,8 +72,23 @@ gulp.task('copy', function() {
         .pipe(gulp.dest('vendor/font-awesome'))
 })
 
+// Clone index.html for SEO
+gulp.task('clone-index', function() {
+    gulp.src('index.html')
+     .pipe(rename('./contacts.html'))
+     .pipe(gulp.dest('.'))
+
+    gulp.src('index.html')
+     .pipe(rename('./about.html'))
+     .pipe(gulp.dest('.'))
+
+    gulp.src('index.html')
+     .pipe(rename('./my-works.html'))
+     .pipe(gulp.dest('.'))
+})
+
 // Run everything
-gulp.task('default', ['less', 'minify-css', 'minify-js', 'copy']);
+gulp.task('default', ['less', 'minify-css', 'minify-js', 'copy', 'clone-index']);
 
 // Configure the browserSync task
 gulp.task('browserSync', function() {
@@ -85,11 +100,11 @@ gulp.task('browserSync', function() {
 })
 
 // Dev task with browserSync
-gulp.task('dev', ['browserSync', 'less', 'minify-css', 'minify-js'], function() {
+gulp.task('dev', ['browserSync', 'less', 'minify-css', 'minify-js', 'clone-index'], function() {
     gulp.watch('less/*.less', ['less']);
     gulp.watch('css/*.css', ['minify-css']);
     gulp.watch('js/*.js', ['minify-js']);
     // Reloads the browser whenever HTML or JS files change
-    gulp.watch('*.html', browserSync.reload);
+    gulp.watch('*.html', ['clone-index', browserSync.reload]);
     gulp.watch('js/**/*.js', browserSync.reload);
 });
