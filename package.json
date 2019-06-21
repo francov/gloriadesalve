@@ -6,16 +6,16 @@
   "author": "Francesco Valente",
   "license": "MIT",
   "devDependencies": {
-    "bootstrap": "^3.3.7",
-    "browser-sync": "^2.23.7",
+    "bootstrap": "^3.4.1",
+    "browser-sync": "^2.26.7",
     "font-awesome": "^4.6.3",
-    "gulp": "^3.9.1",
-    "gulp-clean-css": "^2.3.2",
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.2.0",
     "gulp-filter": "^4.0.0",
     "gulp-header": "^1.8.12",
-    "gulp-less": "^3.5.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-uglify": "^1.5.4",
-    "jquery": "^3.3.1"
+    "gulp-less": "^4.0.1",
+    "gulp-rename": "^1.4.0",
+    "gulp-uglify": "^3.0.2",
+    "jquery": "^3.4.1"
   }
 }
