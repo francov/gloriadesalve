@@ -1,6 +1,6 @@
 /*!
  * Gloria De Salve - Artista precaria v2.0.0 (http://gloriadesalve.it)
- * Copyright 2016-2018 Francesco Valente
+ * Copyright 2016-2019 Francesco Valente
  * Licensed under MIT
  */
 body {
@@ -318,14 +318,14 @@ section.success {
   top: 2em;
   margin: 0;
   font-size: 0.85em;
-  line-height: 1.764705882em;
+  line-height: 1.76470588em;
   vertical-align: middle;
   vertical-align: baseline;
   opacity: 0;
-  -webkit-transition: top 0.3s ease,opacity 0.3s ease;
-  -moz-transition: top 0.3s ease,opacity 0.3s ease;
-  -ms-transition: top 0.3s ease,opacity 0.3s ease;
-  transition: top 0.3s ease,opacity 0.3s ease;
+  -webkit-transition: top 0.3s ease, opacity 0.3s ease;
+  -moz-transition: top 0.3s ease, opacity 0.3s ease;
+  -ms-transition: top 0.3s ease, opacity 0.3s ease;
+  transition: top 0.3s ease, opacity 0.3s ease;
 }
 .floating-label-form-group:not(:first-child) {
   padding-left: 14px;
