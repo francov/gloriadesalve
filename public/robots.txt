@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gloriadesalve.it/sitemap-index.xml

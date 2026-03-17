@@ -1,0 +1,37 @@
+---
+import { Image } from 'astro:assets';
+import { type Locale, t, localePath } from '../i18n';
+interface Props {
+  title: string;
+  technique: string;
+  dimensions: string;
+  image: string;
+  year?: string;
+  exhibition?: string;
+  lang: Locale;
+}
+const { title, technique, dimensions, image, year, exhibition, lang } = Astro.props;
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/portfolio/*');
+const imageModule = await images[`/src/assets/portfolio/${image}`]();
+---
+<div class="artwork-detail">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 offset-lg-2">
+        <h3>{title}</h3>
+        <hr class="star-primary">
+        <Image src={imageModule.default} width={900} alt={title} loading="lazy" class="img-fluid" />
+        <ul class="list item-details">
+          <li>{t(lang, 'artwork.title')}: <strong>{title}</strong></li>
+          <li>{t(lang, 'artwork.technique')}: <strong>{technique}</strong></li>
+          <li>{t(lang, 'artwork.dimensions')}: <strong>{dimensions}</strong></li>
+          {year && <li>{t(lang, 'artwork.year')}: <strong>{year}</strong></li>}
+        </ul>
+        {exhibition && <p style="text-align: left;"><em>{exhibition}</em></p>}
+        <a href={localePath('/works/', lang)} class="btn btn-primary">
+          <i class="fa-solid fa-arrow-left"></i> {t(lang, 'artwork.backToWorks')}
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

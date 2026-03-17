@@ -1,0 +1,11 @@
+---
+import { type Locale } from '../i18n';
+import AboutContentIt from './about/AboutContent_it.astro';
+import AboutContentEn from './about/AboutContent_en.astro';
+
+interface Props { lang: Locale; }
+const { lang } = Astro.props;
+---
+<section class="success">
+  {lang === 'it' ? <AboutContentIt /> : <AboutContentEn />}
+</section>

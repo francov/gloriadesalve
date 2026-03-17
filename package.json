@@ -1,21 +1,19 @@
 {
   "name": "gloriadesalve.it",
-  "title": "Gloria De Salve - Artista precaria",
-  "version": "2.0.0",
-  "homepage": "http://gloriadesalve.it",
-  "author": "Francesco Valente",
+  "title": "Gloria De Salve",
+  "version": "4.0.0",
+  "homepage": "https://gloriadesalve.it",
+  "author": "Gloria De Salve",
   "license": "MIT",
-  "devDependencies": {
-    "bootstrap": "^3.4.1",
-    "browser-sync": "^2.26.7",
-    "font-awesome": "^4.6.3",
-    "gulp": "^4.0.2",
-    "gulp-clean-css": "^4.2.0",
-    "gulp-filter": "^4.0.0",
-    "gulp-header": "^1.8.12",
-    "gulp-less": "^4.0.1",
-    "gulp-rename": "^1.4.0",
-    "gulp-uglify": "^3.0.2",
-    "jquery": "^3.4.1"
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "astro": "^5.3.0",
+    "@astrojs/sitemap": "^3.2.1",
+    "bootstrap": "^5.3.3"
   }
 }

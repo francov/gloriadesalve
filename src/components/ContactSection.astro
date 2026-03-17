@@ -1,0 +1,38 @@
+---
+import { type Locale, t } from '../i18n';
+import StarDivider from './StarDivider.astro';
+
+interface Props { lang: Locale; }
+const { lang } = Astro.props;
+---
+<section id="contacts">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2>{t(lang, 'contacts.title')}</h2>
+        <StarDivider variant="primary" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-8 offset-lg-2">
+        <ul class="contactlist list">
+          <li>Email: <strong><span class="email"></span></strong></li>
+          <li>Tel: <strong><span class="tel"></span></strong></li>
+          <li>Instagram: <strong><a target="_blank" rel="noopener" href="https://www.instagram.com/gloriadesalve">@gloriadesalve</a></strong></li>
+          <li>Facebook: <strong><a target="_blank" rel="noopener" href="https://www.facebook.com/gloria.desalve">Gloria De Salve</a></strong></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const p1 = 'desalve.gloria', p2 = '@', p3 = 'gmail.com';
+  const email = p1 + p2 + p3;
+  document.querySelectorAll('span.email').forEach(el => {
+    el.innerHTML = `<a href="mailto:${email}">${email}</a>`;
+  });
+  document.querySelectorAll('span.tel').forEach(el => {
+    el.innerHTML = '<a href="tel:+393407875679">+39 340 7875679</a>';
+  });
+</script>

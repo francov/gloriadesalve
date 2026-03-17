@@ -1,0 +1,5 @@
+---
+interface Props { variant?: 'light' | 'primary'; }
+const { variant = 'primary' } = Astro.props;
+---
+<hr class={`star-${variant}`}>

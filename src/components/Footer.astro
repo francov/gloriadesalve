@@ -1,0 +1,43 @@
+---
+import { type Locale, t } from '../i18n';
+interface Props { lang: Locale; }
+const { lang } = Astro.props;
+---
+<footer class="text-center">
+  <div class="footer-above">
+    <div class="container">
+      <div class="row">
+        <div class="footer-col col-md-6">
+          <h3>Location</h3>
+          <p>Casarano, 73042<br>LECCE (Italy)</p>
+        </div>
+        <div class="footer-col col-md-6">
+          <h3>{t(lang, 'footer.aroundTheWeb')}</h3>
+          <ul class="list-inline">
+            <li class="list-inline-item">
+              <a target="_blank" rel="noopener" href="https://www.instagram.com/gloriadesalve" class="btn-social btn-outline">
+                <span class="visually-hidden">Instagram</span>
+                <i class="fa-brands fa-instagram"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a target="_blank" rel="noopener" href="https://www.facebook.com/gloria.desalve" class="btn-social btn-outline">
+                <span class="visually-hidden">Facebook</span>
+                <i class="fa-brands fa-facebook-f"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-below">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          Copyright &copy; gloriadesalve.it {new Date().getFullYear()}
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

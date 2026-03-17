@@ -1,0 +1,25 @@
+---
+import { Image } from 'astro:assets';
+import { type Locale, localePath } from '../i18n';
+interface Props {
+  slug: string;
+  title: string;
+  image: string;
+  thumbZone?: 'top' | 'center' | 'bottom';
+  lang: Locale;
+}
+const { slug, title, image, thumbZone = 'center', lang } = Astro.props;
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/portfolio/*');
+const imageModule = await images[`/src/assets/portfolio/${image}`]();
+---
+<div class="col-sm-4 portfolio-item">
+  <a href={localePath(`/works/${slug}/`, lang)} class="portfolio-link">
+    <div class="caption">
+      <div class="caption-content">
+        <i class="fa-solid fa-magnifying-glass-plus fa-3x"></i>
+      </div>
+    </div>
+    <Image src={imageModule.default} width={400} alt={title} loading="lazy" style={`object-position: center ${thumbZone}`} class="img-fluid" />
+  </a>
+  <p class="text-center mb-2"><small><em>{title}</em></small></p>
+</div>

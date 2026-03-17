@@ -1,0 +1,52 @@
+---
+import { getCollection } from 'astro:content';
+import { getImage } from 'astro:assets';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Navbar from '../../../components/Navbar.astro';
+import ArtworkDetail from '../../../components/ArtworkDetail.astro';
+import Footer from '../../../components/Footer.astro';
+import ScrollToTop from '../../../components/ScrollToTop.astro';
+import { artworkSlug, t } from '../../../i18n';
+
+export async function getStaticPaths() {
+  const artworks = await getCollection('artworks');
+  return artworks
+    .filter((a) => a.id.startsWith('en/'))
+    .map((artwork) => ({
+      params: { slug: artworkSlug(artwork.id) },
+      props: { artwork },
+    }));
+}
+
+const lang = 'en' as const;
+const { artwork } = Astro.props;
+const { title, technique, dimensions, image, year, exhibition } = artwork.data;
+
+const allImages = import.meta.glob<{ default: ImageMetadata }>('/src/assets/portfolio/*');
+const imageModule = await allImages[`/src/assets/portfolio/${image}`]();
+const ogImg = await getImage({ src: imageModule.default, width: 1200 });
+const ogImageUrl = new URL(ogImg.src, Astro.site).href;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "VisualArtwork",
+  "name": title,
+  "artMedium": technique,
+  "image": ogImageUrl,
+  "creator": { "@type": "Person", "name": "Gloria De Salve" }
+};
+---
+<BaseLayout
+  lang={lang}
+  title={`${title} - Gloria De Salve`}
+  description={`${title} - ${technique}, ${dimensions}. Artwork by Gloria De Salve.`}
+  ogImage={ogImg.src}
+  jsonLd={jsonLd}
+>
+  <Navbar lang={lang} />
+  <main id="maincontent" tabindex="-1">
+    <ArtworkDetail {title} {technique} {dimensions} {image} {year} {exhibition} {lang} />
+  </main>
+  <Footer lang={lang} />
+  <ScrollToTop />
+</BaseLayout>

@@ -1,0 +1,30 @@
+---
+import { type Locale, t, getArtworksByLocale, artworkSlug } from '../i18n';
+import ArtworkCard from './ArtworkCard.astro';
+import StarDivider from './StarDivider.astro';
+
+interface Props { lang: Locale; }
+const { lang } = Astro.props;
+const artworks = await getArtworksByLocale(lang);
+---
+<section id="my-works">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2>{t(lang, 'works.title')}</h2>
+        <StarDivider variant="primary" />
+      </div>
+    </div>
+    <div class="row">
+      {artworks.map((artwork) => (
+        <ArtworkCard
+          slug={artworkSlug(artwork.id)}
+          title={artwork.data.title}
+          image={artwork.data.image}
+          thumbZone={artwork.data.thumbZone}
+          lang={lang}
+        />
+      ))}
+    </div>
+  </div>
+</section>

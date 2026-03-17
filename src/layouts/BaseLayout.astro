@@ -1,0 +1,74 @@
+---
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../styles/global.css';
+import { type Locale, getLocalizedPath, t } from '../i18n';
+
+interface Props {
+  lang?: Locale;
+  title?: string;
+  description?: string;
+  ogImage?: string;
+  jsonLd?: Record<string, unknown>;
+}
+
+const {
+  lang = 'it',
+  ogImage = '/img/profile.png',
+  jsonLd,
+} = Astro.props;
+
+const title = Astro.props.title ?? t(lang, 'meta.siteTitle');
+const description = Astro.props.description ?? t(lang, 'meta.siteDescription');
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const itURL = new URL(getLocalizedPath(Astro.url.pathname, 'it'), Astro.site);
+const enURL = new URL(getLocalizedPath(Astro.url.pathname, 'en'), Astro.site);
+---
+<!DOCTYPE html>
+<html lang={lang}>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content={description}>
+  <meta name="author" content="Francesco Valente">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-site-verification" content="MeJzG-5di8UZSHrzh18Ca4EMVDcfFRqii8_W6wbMNX8" />
+  <meta name="theme-color" content="#C33A1A">
+  <meta name="msapplication-navbutton-color" content="#C33A1A">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <title>{title}</title>
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/favicon.png">
+  <link rel="canonical" href={canonicalURL} />
+  <link rel="alternate" hreflang="it" href={itURL} />
+  <link rel="alternate" hreflang="en" href={enURL} />
+  <link rel="alternate" hreflang="x-default" href={itURL} />
+
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={new URL(ogImage, Astro.site)} />
+  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:type" content="website" />
+
+  <meta property="og:locale" content={lang === 'en' ? 'en_US' : 'it_IT'} />
+  <meta property="og:site_name" content="Gloria De Salve" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={new URL(ogImage, Astro.site)} />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Lato:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+  {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
+</head>
+<body id="page-top">
+  <div id="skipnav"><a href="#maincontent">{t(lang, 'skipnav')}</a></div>
+  <slot />
+  <script>import 'bootstrap';</script>
+</body>
+</html>

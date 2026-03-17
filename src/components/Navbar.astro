@@ -1,0 +1,53 @@
+---
+import { type Locale, t, localePath, getLocalizedPath } from '../i18n';
+
+interface Props {
+  lang: Locale;
+}
+const { lang } = Astro.props;
+const itHref = getLocalizedPath(Astro.url.pathname, 'it');
+const enHref = getLocalizedPath(Astro.url.pathname, 'en');
+const path = Astro.url.pathname;
+---
+<nav id="mainNav" class="navbar navbar-expand-lg navbar-dark fixed-top navbar-custom">
+  <div class="container">
+    <a class="navbar-brand" href={localePath('/', lang)}>Gloria De Salve</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class:list={['nav-link', { active: path.includes('/works') }]} href={localePath('/works/', lang)}>{t(lang, 'nav.works')}</a>
+        </li>
+        <li class="nav-item">
+          <a class:list={['nav-link', { active: path.includes('/about') }]} href={localePath('/about/', lang)}>{t(lang, 'nav.about')}</a>
+        </li>
+        <li class="nav-item">
+          <a class:list={['nav-link', { active: path.includes('/contacts') }]} href={localePath('/contacts/', lang)}>{t(lang, 'nav.contacts')}</a>
+        </li>
+        <li class="nav-item divider-vertical d-none d-lg-block"></li>
+        <li class="nav-item lang-switcher">
+          <div class="btn-group" style="padding: 10px;">
+            <a href={itHref} class:list={['btn', 'btn-sm', { 'active-lang': lang === 'it' }]}>
+              <img src="/img/it.png" alt="Italiano" />
+            </a>
+            <a href={enHref} class:list={['btn', 'btn-sm', { 'active-lang': lang === 'en' }]}>
+              <img src="/img/en.png" alt="English" />
+            </a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<script>
+  document.querySelectorAll('#navbarNav .nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      const toggler = document.querySelector('.navbar-toggler') as HTMLElement;
+      const collapse = document.querySelector('#navbarNav');
+      if (toggler && collapse?.classList.contains('show')) toggler.click();
+    });
+  });
+</script>
