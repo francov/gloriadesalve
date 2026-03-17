@@ -21,7 +21,7 @@ html {
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: min(100%, 1320px) auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -238,9 +238,27 @@ section.success {
   max-width: 400px;
   margin: 0 auto;
   text-decoration: none;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition:
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+@media (hover: hover) {
+  #my-works .portfolio-item .portfolio-link:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    transform: translateY(-3px);
+  }
+}
+@media (hover: none) {
+  #my-works .portfolio-item .portfolio-link.in-view {
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.65);
+    transform: translateY(-8px);
+  }
 }
 #my-works .portfolio-item .portfolio-link .caption {
-  background: rgba(197, 186, 172, 0.9);
+  background: rgba(197, 186, 172, 0.6);
   position: absolute;
   width: 100%;
   height: 100%;
@@ -352,6 +370,8 @@ footer .footer-below {
 .artwork-detail img {
   max-width: 100%;
   height: auto;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
 .artwork-detail .item-details {
   text-align: left;

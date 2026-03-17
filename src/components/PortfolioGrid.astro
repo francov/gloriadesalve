@@ -28,3 +28,13 @@ const artworks = await getArtworksByLocale(lang);
     </div>
   </div>
 </section>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      entry.target.classList.toggle('in-view', entry.isIntersecting);
+    });
+  }, { rootMargin: '-35% 0px -35% 0px' });
+
+  document.querySelectorAll('#my-works .portfolio-link').forEach(el => observer.observe(el));
+</script>
