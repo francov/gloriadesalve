@@ -229,7 +229,7 @@ section.success {
 
 /* Portfolio grid */
 #my-works .portfolio-item {
-  margin: 0 0 15px;
+  margin: 0 0 1.5rem;
   right: 0;
 }
 #my-works .portfolio-item .portfolio-link {
@@ -253,7 +253,7 @@ section.success {
 }
 @media (hover: none) {
   #my-works .portfolio-item .portfolio-link.in-view {
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.65);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.65);
     transform: translateY(-8px);
   }
 }
