@@ -19,6 +19,10 @@ export default defineConfig({
           en: 'en',
         },
       },
+      filter: (page) => {
+        const pathname = new URL(page).pathname;
+        return !/^\/(?:en\/)?works\/[^/]+\/$/.test(pathname);
+      },
     }),
   ],
   redirects: {
