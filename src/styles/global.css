@@ -233,17 +233,25 @@ section.success {
   right: 0;
 }
 #my-works .portfolio-item .portfolio-link {
-  display: block;
+  display: flex;
+  flex-direction: column;
   position: relative;
+  height: 100%;
+  width: 100%;
   max-width: 400px;
   margin: 0 auto;
   text-decoration: none;
+  color: inherit;
+  background: #fff;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   transition:
     box-shadow 0.3s ease,
     transform 0.3s ease;
+}
+#my-works .portfolio-item .portfolio-media {
+  position: relative;
 }
 @media (hover: hover) {
   #my-works .portfolio-item .portfolio-link:hover {
@@ -278,12 +286,38 @@ section.success {
   margin-top: -12px;
   color: white;
 }
+#my-works .portfolio-item .portfolio-meta {
+  padding: 0.9rem 1rem 1rem;
+  background: #f7f2eb;
+  min-height: 90px;
+}
+#my-works .portfolio-item .portfolio-meta p {
+  margin: 0;
+}
+#my-works .portfolio-item .portfolio-title {
+  font-size: 0.9rem;
+  line-height: 1.35;
+  font-weight: 700;
+  color: var(--theme-primary);
+}
+#my-works .portfolio-item .portfolio-technique,
+#my-works .portfolio-item .portfolio-dimensions {
+  margin-top: 0.3rem;
+  font-size: 0.76rem;
+  line-height: 1.45;
+  color: rgba(0, 0, 0, 0.74);
+}
 #my-works * {
   z-index: 2;
 }
 @media (min-width: 767px) {
   #my-works .portfolio-item {
     margin: 0 0 30px;
+  }
+}
+@media (max-width: 767px) {
+  #my-works .portfolio-item .portfolio-meta {
+    min-height: 0;
   }
 }
 

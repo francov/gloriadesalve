@@ -20,6 +20,8 @@ const artworks = await getArtworksByLocale(lang);
         <ArtworkCard
           slug={artworkSlug(artwork.id)}
           title={artwork.data.title}
+          technique={artwork.data.technique}
+          dimensions={artwork.data.dimensions}
           image={artwork.data.image}
           thumbZone={artwork.data.thumbZone}
           lang={lang}
