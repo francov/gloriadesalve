@@ -5,5 +5,5 @@ dimensions: "60x90cm"
 image: "rhythm.jpeg"
 thumbZone: "center"
 year: "2025"
-order: 0
+order: 12
 ---

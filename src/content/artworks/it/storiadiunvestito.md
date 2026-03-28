@@ -5,5 +5,5 @@ dimensions: "70x55cm"
 image: "storiadiunvestito.jpeg"
 thumbZone: "center"
 year: "2025"
-order: 0
+order: 6
 ---
