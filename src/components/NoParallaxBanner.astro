@@ -1,0 +1,13 @@
+---
+import { type Locale, t } from '../i18n';
+interface Props { lang: Locale; }
+const { lang } = Astro.props;
+---
+<div class="no_parallax" id="about">
+  <div class="about_me row">
+    <div class="col-lg-12 text-center">
+      <h2>{t(lang, 'about.title')}</h2>
+      <hr class="star-primary">
+    </div>
+  </div>
+</div>

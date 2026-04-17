@@ -21,7 +21,7 @@ html {
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: min(100%, 1320px) auto;
+  background-size: min(100%, 1600px) auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -36,6 +36,18 @@ html {
   .parallax {
     background-attachment: scroll;
   }
+}
+
+.no_parallax {
+  background-image: url("/img/about_glo.jpg");
+  min-height: 350px;
+  background-attachment: scroll;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: min(100%, 1600) auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .about_me {
