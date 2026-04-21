@@ -17,7 +17,7 @@ html {
 /* Parallax */
 .parallax {
   background-image: url("/img/about_glo.jpg");
-  min-height: 350px;
+  min-height: 240px;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -26,28 +26,30 @@ html {
   align-items: center;
   justify-content: center;
 }
-@media (max-width: 768px) {
-  .parallax {
-    background-attachment: scroll;
-    min-height: 250px;
-  }
-}
-@media (min-width: 480px) and (max-width: 992px) {
-  .parallax {
-    background-attachment: scroll;
-  }
-}
-
 .no_parallax {
   background-image: url("/img/about_glo.jpg");
-  min-height: 350px;
+  min-height: 500px;
   background-attachment: scroll;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: min(100%, 1600) auto;
+  background-size: min(100%, 1600px) auto;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .parallax,
+  .no_parallax {
+    background-attachment: scroll;
+    min-height: 240px;
+  }
+}
+@media (min-width: 480px) and (max-width: 992px) {
+  .parallax,
+  .no_parallax {
+    background-attachment: scroll;
+  }
 }
 
 .about_me {
